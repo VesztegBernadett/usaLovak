@@ -9,9 +9,19 @@
 
 
 @section("content")
-<ul>
-    @foreach($horses as $horse)
-    <li>{{$horse['fajta']}} ({{$horse['allam']}} - {{$horse['ev']}})</li>
-    @endforeach
-</ul>
+<div class="container">
+<h1>{{$title}}</h1>
+    <ul id="lista">
+        @foreach($horses as $horse)
+        @if($loop->first)
+        <li id="elso">{{$horse['fajta']}} ({{$horse['allam']}} - {{$horse['ev']}})</li>
+        @elseif($loop->last)
+        <li id="utolso">{{$horse['fajta']}} ({{$horse['allam']}} - {{$horse['ev']}})</li>
+        @else
+        <li>{{$horse['fajta']}} ({{$horse['allam']}} - {{$horse['ev']}})</li>
+        @endif
+        @endforeach
+    </ul>
+</div>
+
 @endsection
